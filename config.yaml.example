@@ -1,0 +1,43 @@
+# Ubiquiti WiFi Person Detector Configuration - EXAMPLE
+# Define your access points and floors
+# Replace the example values with your actual AP details.
+
+access_points:
+  # List of Ubiquiti APs
+  - name: "AP-Ground-Floor-Living"
+    # MAC address of the access point (use colon-separated hex, e.g., aa:bb:cc:dd:ee:ff)
+    mac: "aa:bb:cc:dd:ee:ff"
+    floor: "ground"
+    location: "living_room"
+    # Signal strength threshold for detection (RSSI in dBm)
+    # Adjust based on your environment (typical range: -30 to -90)
+    threshold: -70
+  - name: "AP-Ground-Floor-Kitchen"
+    mac: "11:22:33:44:55:66"
+    floor: "ground"
+    location: "kitchen"
+    threshold: -70
+  - name: "AP-First-Floor-Bedroom1"
+    mac: "77:88:99:aa:bb:cc"
+    floor: "first"
+    location: "bedroom1"
+    threshold: -70
+  - name: "AP-First-Floor-Bedroom2"
+    mac: "dd:ee:ff:00:11:22"
+    floor: "first"
+    location: "bedroom2"
+    threshold: -70
+
+# Detection settings
+detection:
+  # Minimum number of APs that must detect a person to confirm presence
+  min_aps: 2
+  # Time window in seconds to consider for detection
+  time_window: 10
+  # Cooldown period after detection to avoid duplicate triggers (seconds)
+  cooldown: 30
+
+# Logging
+logging:
+  level: "INFO"
+  file: "wifi_detector.log"
