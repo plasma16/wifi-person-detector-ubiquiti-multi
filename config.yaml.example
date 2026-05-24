@@ -1,32 +1,21 @@
 # Ubiquiti WiFi Person Detector Configuration - EXAMPLE
 # Define your access points and floors
 # Replace the example values with your actual AP details.
+# If you want to enable auto-discovery of Ubiquiti APs, set access_points to an empty list [] or remove the section.
 
-access_points:
-  # List of Ubiquiti APs
-  - name: "AP-Ground-Floor-Living"
-    # MAC address of the access point (use colon-separated hex, e.g., aa:bb:cc:dd:ee:ff)
-    mac: "aa:bb:cc:dd:ee:ff"
-    floor: "ground"
-    location: "living_room"
-    # Signal strength threshold for detection (RSSI in dBm)
-    # Adjust based on your environment (typical range: -30 to -90)
-    threshold: -70
-  - name: "AP-Ground-Floor-Kitchen"
-    mac: "11:22:33:44:55:66"
-    floor: "ground"
-    location: "kitchen"
-    threshold: -70
-  - name: "AP-First-Floor-Bedroom1"
-    mac: "77:88:99:aa:bb:cc"
-    floor: "first"
-    location: "bedroom1"
-    threshold: -70
-  - name: "AP-First-Floor-Bedroom2"
-    mac: "dd:ee:ff:00:11:22"
-    floor: "first"
-    location: "bedroom2"
-    threshold: -70
+access_points: []  # Empty list enables auto-discovery via ARP scan (requires local network access)
+# To manually configure APs (recommended for setting floor/location), use the format below:
+# access_points:
+#   - name: "AP-Ground-Floor-Living"
+#     mac: "aa:bb:cc:dd:ee:ff"
+#     floor: "ground"
+#     location: "living_room"
+#     threshold: -70
+#   - name: "AP-Ground-Floor-Kitchen"
+#     mac: "11:22:33:44:55:66"
+#     floor: "ground"
+#     location: "kitchen"
+#     threshold: -70
 
 # Detection settings
 detection:
@@ -41,11 +30,4 @@ detection:
 logging:
   level: "INFO"
   file: "wifi_detector.log"
-
-## Usage Instructions
-
-1. Copy this file to config.yaml: cp config.yaml.example config.yaml
-2. Edit config.yaml with your actual Ubiquiti AP details
-3. Keep config.yaml local - it is intentionally ignored by git for security
-4. Run the detector: python3 detector.py
-
+EOF

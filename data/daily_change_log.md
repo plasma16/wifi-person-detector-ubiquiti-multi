@@ -1,1 +1,5 @@
 ## 2026-05-24 14:49:01\n- Fixed randrange arguments in get_signal_strength() to avoid ValueError: empty range for randrange()\n- Changed random.randint(-50, -60) to random.randint(-60, -50)\n- Changed random.randint(-85, -95) to random.randint(-95, -85)\n- Verified fix by running detector.py - now successfully simulates person detection\n- Pushed commit 2d8bc06 to origin/master
+
+## 2026-05-24 14:57:12\n- Added config.yaml.example as a template for users\n- This file shows the expected format for config.yaml\n- Remember: config.yaml is intentionally ignored by git (see .gitignore) for security and environment-specific reasons
+
+## 2026-05-24 15:26:08\n- Updated detector.py to auto-discover gateway and Ubiquiti access points via ARP scan\n- Added functions: get_gateway_ip, get_local_subnet, arp_scan, is_ubiquiti_mac, discover_aps\n- Modified detect_person to use discovered APs if config['access_points'] is empty or missing\n- Updated config.yaml.example to show how to enable auto-discovery (set access_points: [])\n- Verified that the script still works with manually configured APs (original config.yaml)
