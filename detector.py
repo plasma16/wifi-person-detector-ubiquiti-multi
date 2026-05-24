@@ -25,9 +25,9 @@ def get_signal_strength(ap):
     # For simulation, we'll randomly decide if a person is present near this AP
     # In reality, you'd replace this with actual AP data
     if random.random() < 0.3:  # 30% chance of person being near AP
-        return random.randint(-50, -60)  # Strong signal
+        return random.randint(-60, -50)  # Strong signal
     else:
-        return random.randint(-85, -95)  # Weak signal (no person)
+        return random.randint(-95, -85)  # Weak signal (no person)
 
 def detect_person(config):
     aps = config['access_points']
