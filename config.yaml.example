@@ -41,3 +41,11 @@ detection:
 logging:
   level: "INFO"
   file: "wifi_detector.log"
+
+## Usage Instructions
+
+1. Copy this file to config.yaml: cp config.yaml.example config.yaml
+2. Edit config.yaml with your actual Ubiquiti AP details
+3. Keep config.yaml local - it is intentionally ignored by git for security
+4. Run the detector: python3 detector.py
+
